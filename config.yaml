@@ -1,0 +1,21 @@
+# docker pull monica:4.1.2-apache
+# https://developers.home-assistant.io/docs/add-ons/configuration/#add-on-configuration
+
+name: Monica
+version: 4.1.2
+slug: monica
+description: Monica is an open source personal relationship management system, that lets you document your life.
+arch:
+  - amd64
+  - i386
+webui: http://[HOST]:[PORT:80]/
+watchdog: http://[HOST]:[PORT:80]/
+map:
+  - type: data
+    path: /var/www/html/storage
+    read_only: false
+image: docker.io/library/monica
+ingress: true
+ingress_port: 80
+services:
+  - mysql:need
